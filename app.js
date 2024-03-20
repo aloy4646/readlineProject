@@ -17,30 +17,43 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-
-function tanyaNama(){
-    rl.question("Siapa nama anda? ", (nama) =>{
-        tanyaNomorHandphone(nama)
-    })
-    
-}
-
-function tanyaNomorHandphone(nama){
+rl.question("Siapa nama anda? ", (nama) =>{
     rl.question("Berapa nomor handphone anda? ", (nomorHandphone) =>{
-        tanyaEmail(nama, nomorHandphone)
+        rl.question("Apa nama email anda? ", (email) =>{
+            console.log("===========================\n" + 
+                "Berikut ini adalah data diri anda\n" + 
+                "Nama: " + nama +
+                "\nNomor handphone: " + nomorHandphone +
+                "\nEmail: " + email)
+            
+            rl.close()
+        })
     })
-}
+})
 
-function tanyaEmail(nama, nomorHandphone){
-    rl.question("Apa nama email anda? ", (email) =>{
-        console.log("===========================\n" + 
-            "Berikut ini adalah data diri anda\n" + 
-            "Nama: " + nama +
-            "\nNomor handphone: " + nomorHandphone +
-            "\nEmail: " + email)
+// function tanyaNama(){
+//     rl.question("Siapa nama anda? ", (nama) =>{
+//         tanyaNomorHandphone(nama)
+//     })
+    
+// }
+
+// function tanyaNomorHandphone(nama){
+//     rl.question("Berapa nomor handphone anda? ", (nomorHandphone) =>{
+//         tanyaEmail(nama, nomorHandphone)
+//     })
+// }
+
+// function tanyaEmail(nama, nomorHandphone){
+//     rl.question("Apa nama email anda? ", (email) =>{
+//         console.log("===========================\n" + 
+//             "Berikut ini adalah data diri anda\n" + 
+//             "Nama: " + nama +
+//             "\nNomor handphone: " + nomorHandphone +
+//             "\nEmail: " + email)
         
-        rl.close()
-    })
-}
+//         rl.close()
+//     })
+// }
 
-tanyaNama()
+// tanyaNama()
