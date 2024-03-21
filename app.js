@@ -17,43 +17,32 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
+const validator = require("validator")
+
+isValid = true
+
 rl.question("Siapa nama anda? ", (nama) =>{
     rl.question("Berapa nomor handphone anda? ", (nomorHandphone) =>{
         rl.question("Apa nama email anda? ", (email) =>{
-            console.log("===========================\n" + 
+            if(!validator.isMobilePhone(nomorHandphone, "id-ID")){
+                console.log("- Nomor Handphone yang anda berikan tidak sesuai format")
+                isValid = false
+            }
+            
+            if (!validator.isEmail(email)){
+                console.log("- Email yang anda berikan tidak sesuai format")
+                isValid = false
+            }
+
+            if (isValid){
+                console.log("===========================\n" + 
                 "Berikut ini adalah data diri anda\n" + 
                 "Nama: " + nama +
                 "\nNomor handphone: " + nomorHandphone +
                 "\nEmail: " + email)
+            }
             
             rl.close()
         })
     })
 })
-
-// function tanyaNama(){
-//     rl.question("Siapa nama anda? ", (nama) =>{
-//         tanyaNomorHandphone(nama)
-//     })
-    
-// }
-
-// function tanyaNomorHandphone(nama){
-//     rl.question("Berapa nomor handphone anda? ", (nomorHandphone) =>{
-//         tanyaEmail(nama, nomorHandphone)
-//     })
-// }
-
-// function tanyaEmail(nama, nomorHandphone){
-//     rl.question("Apa nama email anda? ", (email) =>{
-//         console.log("===========================\n" + 
-//             "Berikut ini adalah data diri anda\n" + 
-//             "Nama: " + nama +
-//             "\nNomor handphone: " + nomorHandphone +
-//             "\nEmail: " + email)
-        
-//         rl.close()
-//     })
-// }
-
-// tanyaNama()
