@@ -24,6 +24,11 @@ isValid = true
 rl.question("Siapa nama anda? ", (nama) =>{
     rl.question("Berapa nomor handphone anda? ", (nomorHandphone) =>{
         rl.question("Apa nama email anda? ", (email) =>{
+            if(!validator.isAlpha(nama)){
+                console.log("- Format anda tidak sesuai");
+                isValid = false
+            }
+
             if(!validator.isMobilePhone(nomorHandphone, "id-ID")){
                 console.log("- Nomor Handphone yang anda berikan tidak sesuai format")
                 isValid = false
@@ -41,7 +46,7 @@ rl.question("Siapa nama anda? ", (nama) =>{
                 "\nNomor handphone: " + nomorHandphone +
                 "\nEmail: " + email)
             }
-            
+
             rl.close()
         })
     })
